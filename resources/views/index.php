@@ -12,6 +12,6 @@
 </head>
 
 <body id="ID">
- 
+  
 	@extends('app')
 </body>
