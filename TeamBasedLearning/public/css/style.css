@@ -28,6 +28,39 @@
 .respuesta{
 	margin-left:10%;
 	max-width: 90%;
+
 }
+
+.ventana{
+	min-height:530px;
+}
+
+.sub-ventana{
+	height:530px;
+	overflow:auto
+  	overflow-x: hidden;
+}
+
+.preguntas{
+	max-height:450px;
+	overflow-y:auto;
+}
+
+.sub-respuestas{
+	max-height:200px;
+    overflow-y:auto;
+
+}
+
+
+
+.list-group-item {
+    padding: 3px 10px;
+    
+}
+
+
+
+
 
 
