@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <link rel="stylesheet" href="{{ ('css/app.css') }}">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body class="body-principal">
-	 <link rel="stylesheet" href="{{ ('css/app.css') }}">
-	 <link rel="stylesheet" href="{{ ('css/.css') }}">
   	<nav class="navbar navbar-toggleable-md bg-inverse">
 	  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
