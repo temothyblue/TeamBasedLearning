@@ -1,7 +1,6 @@
 <?php
 	include('header.php');
 	include('reciente.php');
-	include('footer.php');
 ?>
 
 <!DOCTYPE html>
@@ -13,5 +12,8 @@
 
 <body id="ID">
  
-	@extends('app')
+	<a href="../resources/views/funcionamiento_sala/index.php"> funcionamiento sala </a>
+	<a href="interfaz-sala"> interfaz sala </a>
+	<a href="../resources/views/funcionamiento_reporte_voto/index.php"> reporte voto </a>
+	<?php  	include('footer.php'); ?>
 </body>
