@@ -10,6 +10,7 @@
 		<input type="hidden" name="sal" value=<?php echo $sala ?>>
 		<input type="hidden" name="idusr" value=<?php echo $idusr ?>>
 		<input type="hidden" name="nameusr" value=<?php echo $user ?>>
+		<input type="hidden" name="rut" value=<?php echo $rut ?>>
 	</form>
 </body>
 </html>

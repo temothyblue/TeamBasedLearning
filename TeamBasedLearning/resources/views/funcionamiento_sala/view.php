@@ -10,6 +10,7 @@ if (isset($_REQUEST['ok'])){
 	$fecha=date("Y-m-d");
 	$idusr=$_POST["idusr"];
 	$user=$_POST["nameusr"];
+	$rut=$_POST["rut"];
 
 	$q="INSERT INTO `mensaje`(`id`, `emisor`, `id_emisor`, `fecha`, `contenido`, `sala`) VALUES (NULL,'".$user."',".$idusr.",'".$fecha."','".$msj."','".$sala."')";
 
@@ -22,6 +23,7 @@ if (isset($_REQUEST['ok'])){
 
 
 $idusr=$_POST["idusr"];
+$rut=$_POST["rut"];
 $user=$_POST["nameusr"];
 echo "Id Usuario=".$idusr."<br>";
 echo "Nombre Usuario=".$user."<br>";
@@ -31,9 +33,30 @@ if ($resultado = mysqli_query($conn, "SELECT estado FROM sala WHERE nom_sal="."'
 	    	$state =$rows["estado"];
 		}   
 		if($state==0){echo "Estado: ABIERTA <br><br>"; } else{echo "Estado: CERRADA<br><br>";}	
+		mysqli_free_result($resultado);
 	}
 
-if ($resultado = mysqli_query($conn, "SELECT * FROM sala INNER JOIN alumno ON alumno.cod_cur=sala.cod_cur WHERE sala.nom_sal="."'".$sala."'")) {
+if ($resultado = mysqli_query($conn, "SELECT id_sal FROM alumno WHERE id_alu='".$rut."'")) {
+		while($rows = $resultado->fetch_array()){
+	    	$idsal =$rows["id_sal"];
+		}  
+	mysqli_free_result($resultado);
+}
+
+
+if ($resultado = mysqli_query($conn, "SELECT curso.cod_cur, nom_cur FROM sala INNER JOIN curso ON sala.cod_cur=curso.cod_cur WHERE sala.id_sal="."'".$idsal."'")) {
+	echo  "<br>Sala perteneciente al curso: ";
+	while($rows = $resultado->fetch_array()){
+	 	echo "<br>".$rows["cod_cur"]." ".$rows["nom_cur"]."<br><br>";
+	    }
+	mysqli_free_result($resultado);
+}
+else{
+	echo "No";
+}
+
+
+if ($resultado = mysqli_query($conn, "SELECT nom_alu FROM sala INNER JOIN alumno ON alumno.id_sal=sala.id_sal WHERE alumno.id_sal="."'".$idsal."'")) {
 	echo  "Participantes: ";
 	while($rows = $resultado->fetch_array()){
 	 	echo "<br>".$rows["nom_alu"];
@@ -43,6 +66,8 @@ if ($resultado = mysqli_query($conn, "SELECT * FROM sala INNER JOIN alumno ON al
 else{
 	echo "No";
 }
+
+
 
 if ($resultado = mysqli_query($conn, "SELECT emisor,contenido FROM mensaje WHERE sala="."'".$sala."'")) {
 	echo  "<br><br>Mensajes: ";
