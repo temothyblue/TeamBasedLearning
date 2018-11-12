@@ -3,7 +3,7 @@
 $sala = $_POST["sal"];
 echo "<br>"."Nombre de la sala: ".$sala."<br>";
 include("connect.php");
-
+include("../layout/interfaz-sala.blade.php");
 
 if (isset($_REQUEST['ok'])){
 	$msj=$_POST["msj"];
@@ -45,9 +45,9 @@ if ($resultado = mysqli_query($conn, "SELECT id_sal FROM alumno WHERE id_alu='".
 
 
 if ($resultado = mysqli_query($conn, "SELECT curso.cod_cur, nom_cur FROM sala INNER JOIN curso ON sala.cod_cur=curso.cod_cur WHERE sala.id_sal="."'".$idsal."'")) {
-	echo  "<br>Sala perteneciente al curso: ";
+	echo  "Sala perteneciente al curso: ";
 	while($rows = $resultado->fetch_array()){
-	 	echo "<br>".$rows["cod_cur"]." ".$rows["nom_cur"]."<br><br>";
+	 	echo $rows["cod_cur"]." ".$rows["nom_cur"]."<br>";
 	    }
 	mysqli_free_result($resultado);
 }
@@ -59,28 +59,32 @@ else{
 if ($resultado = mysqli_query($conn, "SELECT nom_alu FROM sala INNER JOIN alumno ON alumno.id_sal=sala.id_sal WHERE alumno.id_sal="."'".$idsal."'")) {
 	echo  "Participantes: ";
 	while($rows = $resultado->fetch_array()){
-	 	echo "<br>".$rows["nom_alu"];
+	 	echo " ".$rows["nom_alu"];
 	    }
 	mysqli_free_result($resultado);
 }
 else{
 	echo "No";
 }
-
+titulo();
 
 
 if ($resultado = mysqli_query($conn, "SELECT emisor,contenido FROM mensaje WHERE sala="."'".$sala."'")) {
 	echo  "<br><br>Mensajes: ";
 	while($rows = $resultado->fetch_array()){
-	    echo "<br>".$rows["emisor"].":";
-	    echo $rows["contenido"];
+		echo '<br>';
+		pregunta($rows["emisor"],$rows["contenido"]);
 	    }
 	mysqli_free_result($resultado);
 }
 
+ 
+bar();
+pregunta_sin_resolver("como se hace esto");
+respuestas_bar();
+preguntas_resueltas("como resolver tanto");
+bottom();
 
-if($state==0){ include("message.php"); } 
-
-
+if($state==0){ include("message.php"); }
 ?>
 
