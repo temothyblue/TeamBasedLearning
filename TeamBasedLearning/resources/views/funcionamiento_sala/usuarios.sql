@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2018 a las 04:14:07
+-- Tiempo de generación: 19-11-2018 a las 19:40:20
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -57,7 +57,12 @@ INSERT INTO `alumno` (`id_alu`, `nom_alu`, `ape_alu`, `cod_cur`, `id_sal`) VALUE
 ('196111011', 'Humberto', 'Ferreira', 'INFO1101', 31),
 ('186111011', 'Gloria', 'Ruiz', 'INFO1101', 31),
 ('196311010', 'Andrea', 'Cerda', 'INFO1101', 31),
-('189998887', 'Macarena', 'Robles', 'INFO1101', 0);
+('199824309', 'Lorena', 'Vivar', 'BIO0101', 33),
+('12340055k', 'Julia', 'Cofre', 'BIO0102', 35),
+('12340059k', 'Almendra', 'Romero', 'BIO0102', 35),
+('100000000', 'Patricia', 'Pereira', 'BIO0102', 37),
+('2', 'Luz', 'Astete', 'BIO0102', 38),
+('2', 'Luz', 'Astete', 'INFO1101', 0);
 
 -- --------------------------------------------------------
 
@@ -76,7 +81,9 @@ CREATE TABLE `curso` (
 
 INSERT INTO `curso` (`cod_cur`, `nom_cur`) VALUES
 ('BIO0101', 'Biologia molecular'),
+('BIO0102', 'El cuerpo humano'),
 ('INFO1101', 'Programacion 1'),
+('INFO4444', 'Teoria de sistemas'),
 ('INFO9191', 'Programacion 3');
 
 -- --------------------------------------------------------
@@ -99,21 +106,36 @@ CREATE TABLE `mensaje` (
 --
 
 INSERT INTO `mensaje` (`id`, `emisor`, `id_emisor`, `fecha`, `contenido`, `sala`) VALUES
-(19, 'Juan', 1, '2018-11-01', 'm', 'Introducciï¿½n'),
-(20, 'Juan', 1, '2018-11-01', 'chao', 'Introducciï¿½n'),
-(21, 'Juan', 1, '2018-11-01', 'chao', 'Introducciï¿½n'),
-(22, 'Juan', 1, '2018-11-01', 'chao', 'Introducciï¿½n'),
-(23, 'Juan', 1, '2018-11-01', 'chao', 'Introducciï¿½n'),
-(24, 'Juan', 1, '2018-11-01', 'chao', 'Introducciï¿½n'),
-(25, 'Juan', 1, '2018-11-01', 'chao', 'Introducciï¿½n'),
-(26, 'Juan', 1, '2018-11-06', 'Lo siento', 'Introducciï¿½n'),
-(27, 'Teresa', 5, '2018-11-06', 'Buenos dÃ­as', 'Arreglos'),
-(28, 'Teresa', 5, '2018-11-06', 'Buenos dÃ­as', 'Arreglos'),
-(29, 'Lorena', 3, '2018-11-06', 'Hola Teresa buen dia', 'Arreglos'),
-(30, 'Teresa', 5, '2018-11-06', 'Queria hacer una consulta', 'Arreglos'),
-(31, 'Lorena', 3, '2018-11-06', 'En que te puedo ayudar', 'Arreglos'),
-(32, 'Carlos', 6, '2018-11-06', 'Pregunta, todos podemos ayudar', 'Arreglos'),
-(33, 'Lorena', 3, '2018-11-06', 'Gracias', 'Arreglos');
+(112, 'Lorena', 3, '2018-11-17', 'AdiÃ³s', '29'),
+(113, 'Lorena', 3, '2018-11-17', 'AdiÃ³s', '29'),
+(114, 'Lorena', 3, '2018-11-17', 'AdiÃ³s', '29'),
+(115, 'Lorena', 3, '2018-11-17', 'AdiÃ³s', '29'),
+(116, 'Lorena', 3, '2018-11-17', 'AdiÃ³s', '29'),
+(117, 'Lorena', 3, '2018-11-17', 'AdiÃ³s', '29'),
+(118, 'Lorena', 3, '2018-11-17', 'AdiÃ³s', '29'),
+(119, 'Lorena', 3, '2018-11-17', 'AdiÃ³s', '29'),
+(120, 'Lorena', 3, '2018-11-17', 'AdiÃ³s', '29'),
+(121, 'Lorena', 3, '2018-11-18', 'mm', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `retro`
+--
+
+CREATE TABLE `retro` (
+  `id_retro` int(5) NOT NULL,
+  `id_tema` int(3) NOT NULL,
+  `comentario` varchar(800) NOT NULL,
+  `id_us` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `retro`
+--
+
+INSERT INTO `retro` (`id_retro`, `id_tema`, `comentario`, `id_us`) VALUES
+(1, 1, 'Con append se agregan elementos al final de un arreglo', 2);
 
 -- --------------------------------------------------------
 
@@ -139,7 +161,13 @@ INSERT INTO `sala` (`id_sal`, `nom_tema`, `max_sal`, `estado`, `cod_cur`) VALUES
 (29, 'Arreglos en Rubi', 5, 0, 'INFO1101'),
 (30, 'Arreglos en Rubi', 5, 0, 'INFO1101'),
 (31, 'Arreglos en Rubi', 5, 0, 'INFO1101'),
-(32, 'Arreglos en Rubi', 5, 0, 'INFO1101');
+(32, 'Arreglos en Rubi', 5, 0, 'INFO1101'),
+(33, 'El aparato de Golgi', 5, 0, 'BIO0101'),
+(34, 'La tiroides', 5, 0, 'BIO0102'),
+(35, 'El higado', 5, 0, 'BIO0102'),
+(36, 'El higado', 5, 0, 'BIO0102'),
+(37, 'El esofago', 5, 0, 'BIO0102'),
+(38, 'Sistema respiratorio', 5, 0, 'BIO0102');
 
 -- --------------------------------------------------------
 
@@ -160,7 +188,12 @@ CREATE TABLE `temas` (
 INSERT INTO `temas` (`id_tema`, `nom_tema`, `cod_cur`) VALUES
 (1, 'Introduccion a Python', 'INFO1101'),
 (4, 'La celula', 'BIO0101'),
-(5, 'Arreglos en Rubi', 'INFO1101');
+(5, 'Arreglos en Rubi', 'INFO1101'),
+(6, 'El aparato de Golgi', 'BIO0101'),
+(7, 'La tiroides', 'BIO0102'),
+(8, 'El higado', 'BIO0102'),
+(9, 'El esofago', 'BIO0102'),
+(10, 'Sistema respiratorio', 'BIO0102');
 
 -- --------------------------------------------------------
 
@@ -172,35 +205,36 @@ CREATE TABLE `usuario` (
   `id_us` int(3) NOT NULL,
   `nom_us` varchar(30) NOT NULL,
   `ape_us` varchar(30) NOT NULL,
-  `nivel` int(1) NOT NULL
+  `nivel` int(1) NOT NULL,
+  `pass` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_us`, `nom_us`, `ape_us`, `nivel`) VALUES
-(1, 'Juan', 'Perez', 1),
-(2, 'Cesar', 'Vera', 0),
-(3, 'Lorena', 'Vivar', 1),
-(4, 'Pablo', 'Romero', 1),
-(5, 'Teresa', 'Rodriguez', 1),
-(6, 'Carlos', 'Rubilar', 1),
-(7, 'Alejandra', 'Cofre', 1),
-(8, 'Soledad', 'Vega', 1),
-(9, 'Genaro', 'Alarcon', 1),
-(10, 'Jorge', 'Tapia', 1),
-(11, 'Nicolas', 'Lira', 1),
-(12, 'Fernanda', 'Cofre', 1),
-(13, 'Gaston', 'Jaramillo', 1),
-(14, 'Luis', 'Urra', 1),
-(15, 'Humberto', 'Ferreira', 1),
-(16, 'Gloria', 'Ruiz', 1),
-(17, 'Andrea', 'Cerda', 1),
-(18, 'Renata', 'Flores', 1),
-(19, 'Renata', 'Flores', 1),
-(20, 'Rene', 'Jara', 1),
-(21, 'Rene', 'Jara', 1);
+INSERT INTO `usuario` (`id_us`, `nom_us`, `ape_us`, `nivel`, `pass`) VALUES
+(1, 'Juan', 'Perez', 1, '1234'),
+(2, 'Cesar', 'Vera', 0, '1234'),
+(3, 'Lorena', 'Vivar', 1, '1234'),
+(4, 'Pablo', 'Romero', 1, '1234'),
+(5, 'Teresa', 'Rodriguez', 1, '1234'),
+(6, 'Carlos', 'Rubilar', 1, '1234'),
+(7, 'Alejandra', 'Cofre', 1, '1234'),
+(8, 'Soledad', 'Vega', 1, '1234'),
+(9, 'Genaro', 'Alarcon', 1, '1234'),
+(10, 'Jorge', 'Tapia', 1, '1234'),
+(11, 'Nicolas', 'Lira', 1, '1234'),
+(12, 'Fernanda', 'Cofre', 1, '1234'),
+(13, 'Gaston', 'Jaramillo', 1, '1234'),
+(14, 'Luis', 'Urra', 1, '1234'),
+(15, 'Humberto', 'Ferreira', 1, '1234'),
+(16, 'Gloria', 'Ruiz', 1, '1234'),
+(17, 'Andrea', 'Cerda', 1, '1234'),
+(22, 'Julia', 'Cofre', 1, ''),
+(23, 'Almendra', 'Romero', 1, ''),
+(12340062, 'Patricia', 'Pereira', 1, '100000000'),
+(12340063, 'Luz', 'Astete', 1, '2');
 
 --
 -- Índices para tablas volcadas
@@ -217,6 +251,12 @@ ALTER TABLE `curso`
 --
 ALTER TABLE `mensaje`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `retro`
+--
+ALTER TABLE `retro`
+  ADD PRIMARY KEY (`id_retro`);
 
 --
 -- Indices de la tabla `sala`
@@ -244,25 +284,31 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `mensaje`
 --
 ALTER TABLE `mensaje`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+
+--
+-- AUTO_INCREMENT de la tabla `retro`
+--
+ALTER TABLE `retro`
+  MODIFY `id_retro` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `sala`
 --
 ALTER TABLE `sala`
-  MODIFY `id_sal` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_sal` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `temas`
 --
 ALTER TABLE `temas`
-  MODIFY `id_tema` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_tema` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_us` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_us` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12340064;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

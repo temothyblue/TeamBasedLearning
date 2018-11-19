@@ -15,7 +15,6 @@ table{
 	border: 1px solid black;
 }
 </style>
-
 <html>
 	<h3>Tabla alumno</h3>
 	<table>
@@ -26,6 +25,11 @@ table{
 			<td>SALA</td>
 		</tr>
 <?php
+	include_once 'includes/user.php';
+	include_once 'includes/user_session.php';
+	$userSession = new UserSession();
+	$_SESSION["username"]=$userSession->getCurrentUser();
+	echo $_SESSION["username"];
 	include("connect.php");
 	$sql2="SELECT * FROM alumno";
 	if($resultado = mysqli_query($conn,$sql2)){
@@ -41,7 +45,6 @@ table{
 	}
 
 ?>
-
 	</table><br>
 	<h3>Tabla salas</h3>
 	<table>
@@ -52,8 +55,6 @@ table{
 			<td>ESTADO</td>
 			<td>CURSO</td>
 		</tr>
-
-
 <?php
 
 	$sql="SELECT * FROM sala";
@@ -79,8 +80,6 @@ table{
 			<td>TEMA</td>
 
 		</tr>
-
-
 <?php
 
 	$sql="SELECT * FROM curso";
@@ -102,8 +101,6 @@ table{
 			<td>NOMBRE DEL TEMA</td>
 			<td>CURSO</td>
 		</tr>
-
-
 <?php
 
 	$sql="SELECT * FROM temas";
@@ -117,11 +114,6 @@ table{
 		}
 		mysqli_free_result($resultado); 
 	}
-
 ?>
 	</table>
-
-
-
-
 </html>

@@ -1,0 +1,21 @@
+form{
+	font-family: Arial;
+	position: absolute;
+}
+
+.head{
+	background-color: black;
+	color: white;
+}
+
+.regresar{
+	background-color: white;
+	border-color: white;
+	border-radius: 9px;
+
+}
+.ico{
+	width:44px;
+	height: 44px;
+	border-color: none;
+}

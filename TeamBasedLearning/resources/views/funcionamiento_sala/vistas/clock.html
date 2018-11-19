@@ -1,0 +1,14 @@
+
+<script type="text/javascript">
+	var milliseconds=1000;
+	var start = new Date().getTime();
+  	for (var i = 0; i < 1e7; i++) {
+    	if ((new Date().getTime() - start) > milliseconds){
+    		console.log(i);
+    		sleep(1000);
+      	}
+    }
+</script>
+<html>
+<div id="number"></div>
+</html>
