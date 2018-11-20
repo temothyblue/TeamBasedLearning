@@ -28,11 +28,34 @@ io.on("connection", function(client) {
     console.log(data);
   });
 
-    
+  client.on("load", function(data){
+    con.query("SELECT * FROM message where name_rom='Introduccion al Calculo'",function(err,rows){
+      if(err) throw err;
+      for (var data of rows){
+        console.log(data.mensaje);
+        console.log(data);
+        }
+      client.emit('showrows', rows);
+    });
+  })
+  
+  client.on("users", function(data){
+    con.query("SELECT * FROM usuario",function(err,rows){
+      if(err) throw err;
+      client.emit('list', rows);
+    });
+  });
+
   client.on("messages", function(data) {
-    client.emit("thread", data);
-    client.broadcast.emit("thread", data);
-    
+    var query1 = "INSERT INTO message(name_rom,mensaje,name_user) VALUES (";
+    var aux    = query1.concat("'Introduccion al Calculo',");
+    aux        = aux.concat("'"+data.mensaje+"',");
+    aux        = aux.concat("'"+data.username+"')");
+    con.query(aux,function(err,rows){
+      if(err) throw err;
+      client.emit("thread", data);
+      client.broadcast.emit("thread", data);
+    });
   });
 
 
@@ -43,13 +66,7 @@ io.on("connection", function(client) {
 });
 
   //lista los usuarios registrados
-    con.query('SELECT * FROM usuario',function(err,rows){
-      if(err) throw err;
-      for (var data of rows){
-      	console.log(data.nom_us);}
-      client.emit('showrows', rows);
-    });
-
+    
 
 });
 

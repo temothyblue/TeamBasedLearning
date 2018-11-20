@@ -14,7 +14,10 @@ socket.on("thread", function(data) {
   $("#thread").append("<li>" + data.username+": "+data.mensaje + "</li>");
 });
 
-
+$(document).ready(function(){
+  socket.emit("load",{mensaje:'nada'});
+  socket.emit("users",{mensaje:'nada'});
+})
 
 // sends message to server, resets & prevents default form action
 $("form").submit(function() {
@@ -50,4 +53,17 @@ function endtyping() {
       $('.typing').html("");
     }
   });
-
+ socket.on('showrows', function(data) {
+    console.log(data);
+    for (var i of data){
+      $("#thread").append("<li>" + i.name_user+": "+i.mensaje + "</li>");      
+    }
+  });
+ socket.on('list', function(data) {
+    console.log(data);
+    var txt = "";
+    for (var i of data){
+      txt=txt+i.nom_us+";";     
+    }
+    console.log(txt);
+  });
