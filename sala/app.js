@@ -4,7 +4,7 @@ var express = require("express");
 var app = express();
 var server = require("http").createServer(app);
 var io = require("socket.io")(server);
-
+var id = 0;
 app.get("/", function(req, res, next) {
   res.sendFile(__dirname + "/public/index.html");
 });
@@ -53,6 +53,10 @@ io.on("connection", function(client) {
     aux        = aux.concat("'"+data.username+"')");
     con.query(aux,function(err,rows){
       if(err) throw err;
+      //cuando es una pregunta le asigna un id al li
+      if (data.tipo == " "){ 
+      data.id = id;
+      id += 1;}
       client.emit("thread", data);
       client.broadcast.emit("thread", data);
     });
@@ -72,5 +76,3 @@ io.on("connection", function(client) {
 
 
 server.listen(8000);
-
-

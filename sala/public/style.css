@@ -20,3 +20,8 @@
   li:nth-child(odd) {
     background: #eee;
   }
+
+ #mensajes {
+ overflow:scroll; 
+ height:600;
+}
