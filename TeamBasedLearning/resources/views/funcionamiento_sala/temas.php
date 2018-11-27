@@ -1,6 +1,8 @@
 <?php
 	include("connect.php");
-	
+	date_default_timezone_set("Chile/Continental");
+	//echo "Time=: ".date("Y-m-d H:i:s",time()+60*60) ." "."<br>";
+
 		if ($resultado = mysqli_query($conn, "SELECT id_alu FROM alumno WHERE nom_alu='".$userForm."'")) {
 			while($rows = $resultado->fetch_array()){
 			 	$rut=$rows["id_alu"]; 	
@@ -14,7 +16,7 @@
 		//echo "<br> Bienvenid@ :".$user."  RUT: ".$rut."<br>";
 		//echo "<br>Salas disponibles:<br>";
 		$a=[]; $i=[]; $aId=[];
-		if ($resultado = mysqli_query($conn, "SELECT sala.id_sal, sala.nom_tema FROM sala INNER JOIN alumno ON alumno.id_sal=sala.id_sal WHERE id_alu=".$rut)) {
+		if ($resultado = mysqli_query($conn, "SELECT sala.id_sal, sala.nom_tema FROM sala INNER JOIN alumno ON alumno.id_sal=sala.id_sal WHERE id_alu=".$rut." AND estado=".'0'." AND time_sala>='".date("Y-m-d H:i:s")."'")) {
 			while($rows = $resultado->fetch_array()){
 				array_push($a,$rows["nom_tema"]);
 				array_push($aId,$rows["id_sal"]);
@@ -26,6 +28,7 @@
 ?>
 		<html>
 			<form method="post" action="chat.php">
+			<!--<form action="http://localhost:8000">-->
 			<h1>Salas disponibles:</h1><br>
 			<?php 
 

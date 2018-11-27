@@ -22,8 +22,10 @@ if(isset($_SESSION['user'])){                                   //Si Hay sesion
     if($user->userExists($userForm, $passForm)){
         //echo "Existe el usuario";
         $userSession->setCurrentUser($userForm);
+
         $user->setUser($userForm);
         $_SESSION["username"]=$userSession->getCurrentUser();
+
         include_once 'vistas/home.php';
     }else{
         $errorLogin = "Nombre de usuario y/o password incorrecto";

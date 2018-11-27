@@ -1,6 +1,7 @@
 <?php
 	include("connect.php");
-
+	date_default_timezone_set("Chile/Continental");
+	echo $_POST["cierre"];
 
 	//SI EL ADMIN SELECCIONO ENVIAR RETROALIMENTACIÓN
 	if (isset($_REQUEST['retro'])){
@@ -82,6 +83,7 @@
 		$max_sal=$_POST["max_sal"];
 		$estado =$_POST["estado"]; if($estado=="Abierto"){$estado=0;} else{$estado=1;}
 		$cod_cur=$_POST["cod_cur"];
+		$cierre = $_POST["cierre"];
 
 		#Creo el tema y lo agrego a la tabla cursos
 		$sql1 = "INSERT INTO temas(id_tema, nom_tema, cod_cur) VALUES (NULL,'".$nom_tema."','".$cod_cur."')";
@@ -102,7 +104,7 @@
 			for ($i=0; $i <=$tope ; $i++) { 
 				#Inserto una nueva sala en la tabla
 				echo "<br><br>Entre al cilo con: ".$i."<br><br>";
-				$sql3="INSERT INTO sala(id_sal,nom_tema,max_sal,estado,cod_cur) values (NULL,'".$nom_tema."',".$max_sal.",".$estado.",'".$cod_cur."')";
+				$sql3="INSERT INTO sala(id_sal,nom_tema,max_sal,estado,cod_cur,time_sala) values (NULL,'".$nom_tema."',".$max_sal.",".$estado.",'".$cod_cur."','".$cierre."')";
 				if(mysqli_query($conn,$sql3)){
 					//Selecciono la sala recien creada, osea la de mayor id y lo guardo en una variable
 					if($res = mysqli_query($conn,"SELECT MAX(id_sal) FROM sala")){

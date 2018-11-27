@@ -1,3 +1,4 @@
+<?php date_default_timezone_set("Chile/Continental"); ?>
 <html>
 
 <script type="text/javascript">
@@ -32,6 +33,7 @@
 	<h5>Maximo de integrantes:</h5><input type="text" name="max_sal" value="5">
 	<h5>Estado del tema:</h5><input type="text" name="estado" value="Abierto">
 	<h5>Codigo de curso:</h5><input type="text" name="cod_cur">
+	<h5>Fecha y Hora de cierre:</h5><input type="datetime-local" name="cierre">
 	<input type="hidden" name="name_session" value=<?php echo$_SESSION["username"]; ?>>
 	<input type="submit" name="enviar_tema" value="Crear tema">
 	</form>

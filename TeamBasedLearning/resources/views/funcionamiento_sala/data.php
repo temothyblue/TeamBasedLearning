@@ -1,12 +1,14 @@
 <?php
+include("connect.php");
 $id_sala = $_POST["sal"];
 include_once 'includes/user.php';
 include_once 'includes/user_session.php';
 $userSession = new UserSession();
 $user = new User();
-if(isset($_SESSION['user'])){                                    //Si Hay sesion
-    if((time()-$_SESSION["time"])>1800){                          //Cuantos segundos dura la sesión (30min)
+if(isset($_SESSION['user'])){                              //Si Hay sesion
+    if((time()-$_SESSION["time"])>1800){                  //Si la sesión expiró(Cuantos segundos dura la sesión (30min))
     	echo "<script>alert('LA SESIÓN EXPIRÓ');</script>";
+    	$userSession->killSala();
         $userSession->closeSession();
         header("location: index.php");
     }
@@ -14,8 +16,9 @@ if(isset($_SESSION['user'])){                                    //Si Hay sesion
         $_SESSION["time"]=time();
         $userForm=$_SESSION["user"];
     }
+
 }
-include("connect.php");
+
 if (isset($_REQUEST['ok'])){
 	$msj=$_POST["msj"];
 	$fecha=date("Y-m-d");
