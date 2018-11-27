@@ -1,6 +1,47 @@
 <?php
+include("./vistas/modalEstado.html");
 include("data.php");
 ?>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	
+	<script type="text/javascript">
+		var e = false;
+		$('#confirmacion').click(function(){
+			e = true;
+		})
+		window.onload = function(){
+			setTimeout(function(){
+				console.log("funciona");
+				$('#modalEstado').modal('show');
+				espera();
+			}, 10000);
+		};
+		function timer0(){
+			setTimeout(function(){
+				console.log("funciona");
+				$('#modalEstado').modal('show');
+				espera();
+			}, 10000);
+		}
+		function closeSala(){
+			console.log("close_session");
+		}
+		function espera(){
+			setTimeout(function(){
+				if(e==true){
+					timer0();
+					e = false;
+				}
+				else{
+					closeSala();
+				}
+			}, 5000);
+		}
+		
+	</script>
 	<link rel="stylesheet" type="text/css" href="temas.css">
 	<div style="" id="cosa" class="head">
 		<a class="col-1">ID Sala:<?php echo $idsal;  ?></a>
