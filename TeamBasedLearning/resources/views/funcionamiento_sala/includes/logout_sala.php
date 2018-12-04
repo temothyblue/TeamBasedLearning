@@ -1,6 +1,10 @@
 <?php 
 	include("sala_session.php");
-	$salaSession = new SalaSession();
-	$salaSession->closeSession();
-    header("location: ../index.php");
+	if(isset($_POST['action'])){
+		if($_POST['action']=='closeSala'){
+			$salaSession = new SalaSession();
+			$salaSession->closeSession();
+			echo "OK";
+		}
+	}
 ?>

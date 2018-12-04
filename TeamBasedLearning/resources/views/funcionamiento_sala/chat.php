@@ -28,6 +28,18 @@ include("data.php");
 		}
 		function closeSala(){
 			console.log("close_session");
+			var parametros = {
+				"action"	 : 'closeSala'
+			};
+			$.ajax({
+				data : parametros,
+				url	 : './includes/logout_sala.php', //direccion que recibe
+				type : 'post',
+				success: function(response){
+					console.log(response);
+					location.href ="./index.php";
+				}
+			});
 		}
 		function espera(){
 			setTimeout(function(){
