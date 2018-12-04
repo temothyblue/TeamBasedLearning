@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-11-2018 a las 19:40:20
+-- Tiempo de generación: 04-12-2018 a las 02:00:45
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -148,26 +148,27 @@ CREATE TABLE `sala` (
   `nom_tema` varchar(50) NOT NULL,
   `max_sal` int(1) NOT NULL,
   `estado` tinyint(1) NOT NULL,
-  `cod_cur` varchar(10) NOT NULL
+  `cod_cur` varchar(10) NOT NULL,
+  `time_sala` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `sala`
 --
 
-INSERT INTO `sala` (`id_sal`, `nom_tema`, `max_sal`, `estado`, `cod_cur`) VALUES
-(1, 'Introducción a Python', 5, 0, 'INFO1101'),
-(22, 'La celula', 5, 0, 'BIO0101'),
-(29, 'Arreglos en Rubi', 5, 0, 'INFO1101'),
-(30, 'Arreglos en Rubi', 5, 0, 'INFO1101'),
-(31, 'Arreglos en Rubi', 5, 0, 'INFO1101'),
-(32, 'Arreglos en Rubi', 5, 0, 'INFO1101'),
-(33, 'El aparato de Golgi', 5, 0, 'BIO0101'),
-(34, 'La tiroides', 5, 0, 'BIO0102'),
-(35, 'El higado', 5, 0, 'BIO0102'),
-(36, 'El higado', 5, 0, 'BIO0102'),
-(37, 'El esofago', 5, 0, 'BIO0102'),
-(38, 'Sistema respiratorio', 5, 0, 'BIO0102');
+INSERT INTO `sala` (`id_sal`, `nom_tema`, `max_sal`, `estado`, `cod_cur`, `time_sala`) VALUES
+(1, 'Introducción a Python', 5, 0, 'INFO1101', '2018-11-27 23:00:00'),
+(22, 'La celula', 5, 0, 'BIO0101', '2018-11-27 23:00:00'),
+(29, 'Arreglos en Rubi', 5, 0, 'INFO1101', '2018-12-27 23:00:00'),
+(30, 'Arreglos en Rubi', 5, 0, 'INFO1101', '2018-11-27 23:00:00'),
+(31, 'Arreglos en Rubi', 5, 0, 'INFO1101', '2018-11-27 23:00:00'),
+(32, 'Arreglos en Rubi', 5, 0, 'INFO1101', '2018-11-27 23:00:00'),
+(33, 'El aparato de Golgi', 5, 0, 'BIO0101', '2018-12-27 23:00:00'),
+(34, 'La tiroides', 5, 0, 'BIO0102', '2018-11-27 23:00:00'),
+(35, 'El higado', 5, 0, 'BIO0102', '2018-11-27 23:00:00'),
+(36, 'El higado', 5, 0, 'BIO0102', '2018-11-27 23:00:00'),
+(37, 'El esofago', 5, 0, 'BIO0102', '2018-11-27 23:00:00'),
+(39, 'Sistema circulatorio', 5, 0, 'BIO0101', '2018-11-30 22:22:00');
 
 -- --------------------------------------------------------
 
@@ -193,7 +194,7 @@ INSERT INTO `temas` (`id_tema`, `nom_tema`, `cod_cur`) VALUES
 (7, 'La tiroides', 'BIO0102'),
 (8, 'El higado', 'BIO0102'),
 (9, 'El esofago', 'BIO0102'),
-(10, 'Sistema respiratorio', 'BIO0102');
+(11, 'Sistema circulatorio', 'BIO0101');
 
 -- --------------------------------------------------------
 
@@ -296,13 +297,13 @@ ALTER TABLE `retro`
 -- AUTO_INCREMENT de la tabla `sala`
 --
 ALTER TABLE `sala`
-  MODIFY `id_sal` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id_sal` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `temas`
 --
 ALTER TABLE `temas`
-  MODIFY `id_tema` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_tema` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
