@@ -1,7 +1,7 @@
 <?php
 	include("connect.php");
 	date_default_timezone_set("Chile/Continental");
-	//echo "Time=: ".date("Y-m-d H:i:s",time()+60*60) ." "."<br>";
+	//echo "Time=: ".date("Y-m-d H:i:s",time()+60*60) ." "."<br>"; 
 
 		if ($resultado = mysqli_query($conn, "SELECT id_alu FROM alumno WHERE nom_alu='".$userForm."'")) {
 			while($rows = $resultado->fetch_array()){
@@ -23,12 +23,27 @@
 				//array_push($i,$rows["id_sal"]);
 			}	
 		}	    
+
+		$aClose=[];$aNClose=[];
+		$sql="SELECT sala.id_sal, sala.time_sala, sala.nom_tema, alumno.nom_alu FROM sala INNER JOIN alumno ON alumno.id_sal=sala.id_sal WHERE id_alu=".$rut." AND time_sala < '".date("Y-m-d H:i:s")."'";
+		if ($resultado = mysqli_query($conn, $sql)) {
+			while($rows = $resultado->fetch_array()){
+				//array_push($a,$rows["nom_tema"]);
+				array_push($aClose,$rows["id_sal"]);
+				array_push($aNClose,$rows["nom_tema"]);
+
+				//array_push($i,$rows["id_sal"]);
+			}	
+		}	
+
+		//print_r($aClose);
+		//print_r($aNClose);
 		//echo "RUT: ".$rut."<br>";
 		//echo "ID USUARIO: ".$idusr; 
 ?>
 		<html>
-			<form method="post" action="chat.php">
-			<!--<form action="http://localhost:8000">-->
+			<!--<form method="post" action="chat.php">-->
+			<form action="http://localhost:8001">
 			<h1>Salas disponibles:</h1><br>
 			<?php 
 
@@ -37,7 +52,17 @@
 											  <input type="hidden" value=<?php echo $aId[$i];  ?> ><br>
 <?php
 	}
-?>			
+?>		
+
+			<h1>Salas cerradas:</h1><br>
+			<?php 
+
+			for ($k=0; $k <count($aNClose) ; $k++) {  ?>
+			<h3><?php echo $aNClose[$k].":"; ?></h3><input name="sal" type="submit" value=<?php echo$aClose[$k]; ?>>
+											  <input type="hidden" value=<?php echo $aClose[$k];  ?> ><br>
+<?php
+	}
+?>				
 			<input type="hidden" name="idusr" value=<?php echo $idusr; ?>>
 			<input type="hidden" name="nameusr" value=<?php echo $userForm; ?>>
 			<input type="hidden" name="rut" value=<?php echo $rut; ?>>

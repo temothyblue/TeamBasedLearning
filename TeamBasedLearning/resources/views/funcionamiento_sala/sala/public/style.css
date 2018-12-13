@@ -1,0 +1,46 @@
+  html, body {
+    text-align: center;
+    font-family: 'Avenir Next', 'Helvetica', 'Arial', sans-serif;
+  }
+
+  html,body,li,form,ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  form {
+    padding-bottom: 2%;
+  }
+
+  li {
+    list-style: none;
+    width: 100vw;
+  }
+
+  li:nth-child(odd) {
+    background: #eee;
+  }
+
+  .respuesta {
+    margin-left: 10px;
+  }
+  .bb{
+    width: 15px;
+    height: 15px;
+    background-image: url("/css/arrow.ico");
+    background-repeat: no-repeat;
+
+  }
+
+ #mensajes {
+ overflow:scroll; 
+ height:500;
+
+}
+.fa-paper-plane{
+  text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+}
+.fa-paper-plane:hover{
+  transition: 0.1s;
+  color:blue;
+}

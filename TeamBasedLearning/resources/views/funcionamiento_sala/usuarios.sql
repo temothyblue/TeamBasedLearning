@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-12-2018 a las 02:00:45
+-- Tiempo de generación: 13-12-2018 a las 22:45:50
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -98,24 +98,33 @@ CREATE TABLE `mensaje` (
   `id_emisor` int(3) NOT NULL,
   `fecha` varchar(10) NOT NULL,
   `contenido` varchar(500) NOT NULL,
-  `sala` varchar(20) NOT NULL
+  `sala` varchar(20) NOT NULL,
+  `tipo` varchar(10) NOT NULL,
+  `question` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `mensaje`
 --
 
-INSERT INTO `mensaje` (`id`, `emisor`, `id_emisor`, `fecha`, `contenido`, `sala`) VALUES
-(112, 'Lorena', 3, '2018-11-17', 'AdiÃ³s', '29'),
-(113, 'Lorena', 3, '2018-11-17', 'AdiÃ³s', '29'),
-(114, 'Lorena', 3, '2018-11-17', 'AdiÃ³s', '29'),
-(115, 'Lorena', 3, '2018-11-17', 'AdiÃ³s', '29'),
-(116, 'Lorena', 3, '2018-11-17', 'AdiÃ³s', '29'),
-(117, 'Lorena', 3, '2018-11-17', 'AdiÃ³s', '29'),
-(118, 'Lorena', 3, '2018-11-17', 'AdiÃ³s', '29'),
-(119, 'Lorena', 3, '2018-11-17', 'AdiÃ³s', '29'),
-(120, 'Lorena', 3, '2018-11-17', 'AdiÃ³s', '29'),
-(121, 'Lorena', 3, '2018-11-18', 'mm', '');
+INSERT INTO `mensaje` (`id`, `emisor`, `id_emisor`, `fecha`, `contenido`, `sala`, `tipo`, `question`) VALUES
+(472, 'Lorena', 3, '2018-12-13', '@Lorena nn', '29', 'respuesta', 470),
+(473, 'Lorena', 3, '2018-12-13', '@Lorena b', '29', 'respuesta', 470),
+(474, 'Lorena', 3, '2018-12-13', 'google', '29', 'mensaje', 0),
+(475, 'Lorena', 3, '2018-12-13', '@Lorena yahoo', '29', 'respuesta', 0),
+(476, 'Lorena', 3, '2018-12-13', 'holas', '29', 'mensaje', 0),
+(477, 'Lorena', 3, '2018-12-13', 'lpok', '29', 'mensaje', 0),
+(478, 'Lorena', 3, '2018-12-13', '@Lorena uu', '29', 'respuesta', 476),
+(479, 'Lorena', 3, '2018-12-13', '@Lorena iiii', '29', 'respuesta', 476),
+(480, 'Lorena', 3, '2018-12-13', '@Lorena qqqqqq', '29', 'respuesta', 477),
+(481, 'Lorena', 3, '2018-12-13', 'ssss', '29', 'mensaje', 0),
+(482, 'Lorena', 3, '2018-12-13', '@Lorena qqqqqqs', '29', 'respuesta', 477),
+(483, 'Carlos', 6, '2018-12-13', '@Lorena Si', '29', 'respuesta', 481),
+(484, 'Lorena', 3, '2018-12-13', '@Lorena Casa', '29', 'respuesta', 481),
+(485, 'Carlos', 6, '2018-12-13', 'Chao', '29', 'mensaje', 0),
+(486, 'Lorena', 3, '2018-12-13', '@Carlos Sí', '29', 'respuesta', 0),
+(487, 'Lorena', 3, '2018-12-13', '@Lorena sds', '29', 'respuesta', 474),
+(488, 'Lorena', 3, '2018-12-13', '@Lorena ww', '29', 'respuesta', 474);
 
 -- --------------------------------------------------------
 
@@ -160,7 +169,7 @@ INSERT INTO `sala` (`id_sal`, `nom_tema`, `max_sal`, `estado`, `cod_cur`, `time_
 (1, 'Introducción a Python', 5, 0, 'INFO1101', '2018-11-27 23:00:00'),
 (22, 'La celula', 5, 0, 'BIO0101', '2018-11-27 23:00:00'),
 (29, 'Arreglos en Rubi', 5, 0, 'INFO1101', '2018-12-27 23:00:00'),
-(30, 'Arreglos en Rubi', 5, 0, 'INFO1101', '2018-11-27 23:00:00'),
+(30, 'Arreglos en Rubi', 5, 1, 'INFO1101', '2018-11-27 23:00:00'),
 (31, 'Arreglos en Rubi', 5, 0, 'INFO1101', '2018-11-27 23:00:00'),
 (32, 'Arreglos en Rubi', 5, 0, 'INFO1101', '2018-11-27 23:00:00'),
 (33, 'El aparato de Golgi', 5, 0, 'BIO0101', '2018-12-27 23:00:00'),
@@ -285,7 +294,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `mensaje`
 --
 ALTER TABLE `mensaje`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=489;
 
 --
 -- AUTO_INCREMENT de la tabla `retro`

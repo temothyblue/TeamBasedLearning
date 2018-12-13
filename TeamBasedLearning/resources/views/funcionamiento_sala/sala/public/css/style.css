@@ -1,0 +1,69 @@
+.nav-principal{
+	/*background: #3333CC;*/
+}
+.body-principal{
+	background-image: url('https://blog.aprendemarketingonline.com/wp-content/uploads/2017/12/fondo-pa%CC%81gina-web-2.jpg');
+	/*background: #66CCCC;*/
+}
+.main-principal{
+	background: white;
+	max-width: 1100px;
+}
+.head-reciente{
+  margin-top: 0px;
+  margin-bottom: 10px;
+  border: solid 1px #000000;
+  background: white; 
+}
+.body-reciente{
+  background: #999DA1;
+}
+.link-reciente{
+  color: #468CBA;
+}
+
+.img-user{
+}
+
+.respuesta{
+	margin-left:10%;
+	max-width: 90%;
+
+}
+
+.ventana{
+	min-height:530px;
+}
+
+.sub-ventana{
+	height:530px;
+	overflow:auto
+  	overflow-x: hidden;
+}
+
+.preguntas{
+	max-height:450px;
+	overflow-y:auto;
+}
+
+.sub-respuestas{
+	max-height:200px;
+    overflow-y:auto;
+
+}
+
+  #resp {
+    margin-left: 10px;
+    color:red;
+  }
+
+.list-group-item {
+    padding: 3px 10px;
+    
+}
+
+
+
+
+
+
