@@ -17,7 +17,7 @@ Route::get('/', function () {
 			return redirect('/alumno');
 		}
 		if(Session::get('level')==0){
-			return view('/ayudante');
+			return redirect('/ayudante');
 		}
 	}
 	else{
@@ -26,7 +26,19 @@ Route::get('/', function () {
 });
 
 Route::get('/alumno','responseController@listRom');
-
+Route::get('/ayudante',function(){
+	return view('ayudante');
+});
+Route::get('/ayudante/crear_tema',function(){
+	return view('actions.crear_tema');
+});
+Route::get('/ayudante/crear_tema',function(){
+	return view('actions.crear_tema');
+});
 
 Route::post('/loginme','loginController@login');
 Route::get('/logout','loginController@logout');
+
+Route::get('/prueba','TecnicaController@add');
+Route::get('/usuario/{id}','UsuarioController@show');
+Route::get('/usuario2','UsuarioController@showall');

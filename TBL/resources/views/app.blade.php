@@ -12,6 +12,10 @@
 		.content{
 			background: white;
 		}
+		.text_box{
+			width: 50%;
+			margin-left: 50px;
+		}
 	</style>
 </head>
 <body>
